@@ -154,7 +154,7 @@ export default function Home() {
           {isDarkMode ? (
             <>
               <Fenrir />
-              <Luna />
+
               <Laptop />
               <Environment files="./images/kloppenheim_02_4k.hdr" background />
             </>
