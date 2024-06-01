@@ -156,16 +156,11 @@ export default function Home() {
               <Fenrir />
 
               <Laptop />
-              <Environment files="./images/kloppenheim_02_4k.hdr" background />
             </>
           ) : (
             <>
               <Andy />
               <Laptop />
-              <Environment
-                files="./images/kloofendal_48d_partly_cloudy_puresky_4k.hdr"
-                background
-              />
             </>
           )}
         </mesh>
