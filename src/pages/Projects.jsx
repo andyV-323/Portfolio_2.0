@@ -20,14 +20,7 @@ const GOLDENRATIO = 1;
 
 export const Projects = () => {
   const { isDarkMode } = useDarkMode();
-  const BackgroundSetter = () => {
-    const { gl } = useThree();
-    useEffect(() => {
-      gl.setClearColor(isDarkMode ? '#353b48' : '#dcdde1');
-    }, [isDarkMode, gl]);
 
-    return null;
-  };
   const [cameraProps, setCameraProps] = useState({
     fov: 70,
     position: [0, 2, 15],
@@ -90,14 +83,7 @@ export const Projects = () => {
           </mesh>
         </group>
 
-        {isDarkMode ? (
-          <Environment files="./images/moonlit_golf_4k.hdr" background />
-        ) : (
-          <Environment
-            files="./images/kloofendal_48d_partly_cloudy_puresky_4k.hdr"
-            background
-          />
-        )}
+        <Environment preset="city" />
       </Canvas>
     </section>
   );
