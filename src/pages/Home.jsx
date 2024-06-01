@@ -56,89 +56,9 @@ export default function Home() {
               rollFrequency={2}
               intensity={0}
             />
-
-            <Clouds
-              limit={400}
-              material={THREE.MeshLambertMaterial}
-              castShadow={true}
-              receiveShadow
-            >
-              <Physics gravity={[0, 0, 0]}>
-                <Pointer />
-                <Puffycloud
-                  seed={10}
-                  position={[50, 0, 0]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={20}
-                  position={[0, 50, 0]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={30}
-                  position={[50, 0, 50]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={40}
-                  position={[0, 0, -50]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <CuboidCollider
-                  position={[0, -5, 0]}
-                  args={[400, 10, 400]}
-                  castShadow
-                />
-              </Physics>
-            </Clouds>
           </context.Provider>
         ) : (
-          <context.Provider value={{}}>
-            <Clouds
-              limit={400}
-              material={THREE.MeshLambertMaterial}
-              castShadow={true}
-              receiveShadow
-            >
-              <Physics gravity={[0, 0, 0]}>
-                <Pointer />
-                <Puffycloud
-                  seed={10}
-                  position={[50, 0, 0]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={20}
-                  position={[0, 50, 0]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={30}
-                  position={[50, 0, 50]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <Puffycloud
-                  seed={40}
-                  position={[0, 0, -50]}
-                  castShadow
-                  isDarkMode={isDarkMode}
-                />
-                <CuboidCollider
-                  position={[0, -5, 0]}
-                  args={[400, 10, 400]}
-                  castShadow
-                />
-              </Physics>
-            </Clouds>
-          </context.Provider>
+          <context.Provider value={{}}></context.Provider>
         )}
 
         <OrbitControls
