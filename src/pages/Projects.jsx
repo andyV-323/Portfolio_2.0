@@ -61,15 +61,6 @@ export const Projects = () => {
   return (
     <section className="w-full h-screen relative">
       <Canvas dpr={[1, 1.5]} camera={cameraProps}>
-        <Sky
-          distance={4500}
-          receiveShadow={true}
-          castShadow={true}
-          sunPosition={isDarkMode ? [-100, -100, -100] : [-200, 50, -100]}
-          inclination={isDarkMode ? 0 : 0.6}
-          azimuth={isDarkMode ? 0.25 : 0.75}
-        />
-
         <fog attach="fog" args={['#191920', 0, 15]} />
         <group position={[0, -0.5, 0]}>
           <Frames images={projects.images} />
@@ -89,15 +80,6 @@ export const Projects = () => {
             />
           </mesh>
         </group>
-
-        {isDarkMode ? (
-          <Environment files="./images/moonlit_golf_4k.hdr" background />
-        ) : (
-          <Environment
-            files="./images/kloofendal_48d_partly_cloudy_puresky_4k.hdr"
-            background
-          />
-        )}
       </Canvas>
     </section>
   );

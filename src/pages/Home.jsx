@@ -154,7 +154,7 @@ export default function Home() {
           {isDarkMode ? (
             <>
               <Fenrir />
-
+              <Luna />
               <Laptop />
             </>
           ) : (
