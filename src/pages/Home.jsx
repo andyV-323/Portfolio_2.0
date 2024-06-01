@@ -8,9 +8,7 @@ import {
   CameraShake,
   OrbitControls,
   ContactShadows,
-  PerspectiveCamera,
   Html,
-  Sky,
   Environment,
 } from '@react-three/drei';
 import {
@@ -20,169 +18,31 @@ import {
   RigidBody,
 } from '@react-three/rapier';
 import { random } from 'maath';
-import { useControls } from 'leva';
 
-import { Werewolf, Me, Macbook } from '../models';
-import { Moon } from '../models/Moon';
+import {
+  Fenrir,
+  Andy,
+  Laptop,
+  Luna,
+  PerspectiveCam,
+  Lighting,
+} from '../components';
 
 const context = createContext();
-const sunPosition = [-200, 50, -100];
 
 export default function Home() {
   const shake = useRef();
 
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  console.log({ isDarkMode, toggleDarkMode });
-
-  const adjustWerewolfForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [4.9, 4.9, 4.9];
-      screenPosition = [0, -10, -25];
-    } else {
-      screenScale = [5, 5, 5];
-      screenPosition = [0, -11, -25];
-    }
-
-    return [screenScale, screenPosition];
-  };
-  const adjustMoonForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [499, 499, 499];
-      screenPosition = [-300, 400, -800];
-    } else {
-      screenScale = [500, 500, 500];
-      screenPosition = [-300, 400, -800];
-    }
-
-    return [screenScale, screenPosition];
-  };
-
-  const adjustMacbookForScreenSize = () => {
-    let screenScale, screenPosition, screenRotation;
-
-    if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9];
-      screenPosition = [0, -10.5, 6.5];
-    } else {
-      screenScale = [1, 1, 1];
-      screenPosition = [0, -10.5, 6.5];
-    }
-
-    return [screenScale, screenPosition, screenRotation];
-  };
-
-  const adjustMeForScreenSize = () => {
-    let screenScale, screenPosition;
-
-    if (window.innerWidth < 768) {
-      screenScale = [5.9, 5.9, 5.9];
-      screenPosition = [0, -10, 0];
-    } else {
-      screenScale = [6, 6, 6];
-      screenPosition = [0, -10, 0];
-    }
-
-    return [screenScale, screenPosition];
-  };
-  const [macAnimation, setMacAnimation] = useState(false);
-  const [currentAnimation, setCurrentAnimation] = useState('Idle');
-  const [moonScale, moonPosition] = adjustMoonForScreenSize();
-  const [werewolfScale, werewolfPosition] = adjustWerewolfForScreenSize();
-  const [macbookScale, macbookPosition] = adjustMacbookForScreenSize();
-  const [meScale, mePosition] = adjustMeForScreenSize();
-  const [meAnimIndex, setMeAnimIndex] = useState(0);
-
-  const fenrirAnim = ['thriller', 'waving'];
-  const meAnim = ['stand', 'waving1', 'kneeling'];
-  const meAnimDurations = {
-    stand: 6000,
-    waving1: 5000,
-    kneeling: 3000,
-  };
-
-  const handleFenrirClick = () => {
-    const randomIndex = Math.floor(Math.random() * fenrirAnim.length);
-    const randAnim = fenrirAnim[randomIndex];
-    setCurrentAnimation(randAnim);
-    setTimeout(() => {
-      setCurrentAnimation('Idle');
-    }, 28000);
-  };
-  const handleMeClick = () => {
-    let index = 0;
-
-    function playNextAnimation() {
-      if (index < meAnim.length) {
-        setCurrentAnimation(meAnim[index]);
-
-        const duration = meAnimDurations[meAnim[index]] || 3000;
-        setTimeout(playNextAnimation, duration);
-        index++;
-      } else {
-        setCurrentAnimation('sitting');
-        setMeAnimIndex(0);
-      }
-    }
-
-    playNextAnimation();
-  };
-
-  const handleMacClick = () => {
-    setMacAnimation((prev) => (prev ? '' : 'Animation'));
-  };
 
   return (
     <section className="w-full h-screen relative">
       <Canvas shadows>
         <ambientLight intensity={Math.PI / 2} />
-        <PerspectiveCamera
-          makeDefault
-          position={[0, -4, 18]}
-          fov={90}
-          onUpdate={(self) => self.lookAt(0, 0, 0)}
-        >
-          <spotLight
-            position={[0, 40, 2]}
-            angle={0.5}
-            decay={1}
-            distance={45}
-            penumbra={1}
-            intensity={200}
-          />
-          <spotLight
-            position={[-19, 0, -8]}
-            color={isDarkMode ? 'blue' : 'orange'}
-            angle={0.25}
-            decay={0.75}
-            distance={185}
-            penumbra={-1}
-            intensity={100}
-          />
-          <Sky
-            distance={4500}
-            receiveShadow={true}
-            castShadow={true}
-            sunPosition={isDarkMode ? [-100, -100, -100] : [-200, 50, -100]}
-            inclination={isDarkMode ? 0 : 0.6}
-            azimuth={isDarkMode ? 0.25 : 0.75}
-          />
-          <directionalLight
-            position={sunPosition}
-            intensity={15}
-            castShadow={true}
-            shadow-mapSize-width={2048} // Adjust based on needed resolution
-            shadow-mapSize-height={2048} // Adjust based on needed resolution
-            shadow-camera-far={3500}
-            shadow-camera-left={-500}
-            shadow-camera-right={500}
-            shadow-camera-top={500}
-            shadow-camera-bottom={-500}
-          />
-        </PerspectiveCamera>
+        <PerspectiveCam />
+
+        <Lighting />
+
         {isDarkMode ? (
           <context.Provider value={shake}>
             <CameraShake
@@ -293,40 +153,15 @@ export default function Home() {
         <mesh receiveShadow={true} castShadow={true}>
           {isDarkMode ? (
             <>
-              <Werewolf
-                position={werewolfPosition}
-                scale={werewolfScale}
-                onClick={handleFenrirClick}
-                currentAnimation={currentAnimation}
-              />
-              <Moon position={moonPosition} scale={moonScale} />
-              <Macbook
-                position={macbookPosition}
-                scale={macbookScale}
-                macAnimation={'Animation'}
-                castShadow={true}
-                receiveShadow={true}
-              />
+              <Fenrir />
+              <Luna />
+              <Laptop />
               <Environment files="./images/kloppenheim_02_4k.hdr" background />
             </>
           ) : (
             <>
-              <Me
-                position={mePosition}
-                scale={meScale}
-                onClick={handleMeClick}
-                currentAnimation={currentAnimation}
-                receiveShadow={true}
-                castShadow={true}
-              />
-              <Macbook
-                position={macbookPosition}
-                scale={macbookScale}
-                macAnimation={setCurrentAnimation}
-                onClick={handleMacClick}
-                castShadow={true}
-                receiveShadow={true}
-              />
+              <Andy />
+              <Laptop />
               <Environment
                 files="./images/kloofendal_48d_partly_cloudy_puresky_4k.hdr"
                 background
@@ -342,6 +177,14 @@ export default function Home() {
           <planeGeometry args={[500, 500]} />
           <meshStandardMaterial color={isDarkMode ? 'black' : 'white'} />
         </mesh>
+        <ContactShadows
+          opacity={0.25}
+          color="black"
+          position={[0, -10, 0]}
+          scale={50}
+          blur={2.5}
+          far={40}
+        />
 
         <Html castShadow className="w-full h-screen relative">
           <div className="overlay">
@@ -393,15 +236,6 @@ export default function Home() {
             </a>
           </div>
         </Html>
-
-        <ContactShadows
-          opacity={0.25}
-          color="black"
-          position={[0, -10, 0]}
-          scale={50}
-          blur={2.5}
-          far={40}
-        />
       </Canvas>
     </section>
   );
