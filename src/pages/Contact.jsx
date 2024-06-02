@@ -230,15 +230,15 @@ const Contact = () => {
               {isDarkMode ? (
                 <Werewolf
                   currentAnimation={currentAnimation}
-                  position={[0, 0, -2]}
+                  position={[0, -1, -3]}
                   rotation={[12.629, -0.6, 0]}
-                  scale={[0.9, 0.9, 0.9]}
+                  scale={[1.0, 1.0, 1.0]}
                 />
               ) : (
                 <Me
                   currentAnimation={currentAnimation}
                   position={[0, 0, 0]}
-                  rotation={[0, 0, 0]}
+                  rotation={[12.629, 0, 0]}
                   scale={[1.5, 1.5, 1.5]}
                 />
               )}
