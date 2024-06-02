@@ -22,9 +22,12 @@ import {
   Puffycloud,
   Pointer,
 } from '../components';
+import { Context } from '../components/Context';
 
 export default function Home() {
   const { isDarkMode } = useDarkMode();
+  const shakeRef = useRef();
+  const contextValue = useMemo(() => ({ shakeRef }), [isDarkMode]);
 
   return (
     <section className="w-full h-screen relative">
@@ -32,46 +35,47 @@ export default function Home() {
         <ambientLight intensity={Math.PI / 2} />
         <PerspectiveCam />
         <Lighting />
-
-        <Clouds
-          limit={400}
-          material={THREE.MeshLambertMaterial}
-          castShadow={true}
-          receiveShadow
-        >
-          <Physics gravity={[0, 0, 0]}>
-            <Pointer />
-            <Puffycloud
-              seed={10}
-              position={[50, 0, 0]}
-              castShadow
-              isDarkMode={isDarkMode}
-            />
-            <Puffycloud
-              seed={20}
-              position={[0, 50, 0]}
-              castShadow
-              isDarkMode={isDarkMode}
-            />
-            <Puffycloud
-              seed={30}
-              position={[50, 0, 50]}
-              castShadow
-              isDarkMode={isDarkMode}
-            />
-            <Puffycloud
-              seed={40}
-              position={[0, 0, -50]}
-              castShadow
-              isDarkMode={isDarkMode}
-            />
-            <CuboidCollider
-              position={[0, -5, 0]}
-              args={[400, 10, 400]}
-              castShadow
-            />
-          </Physics>
-        </Clouds>
+        <Context.Provider value={contextValue}>
+          <Clouds
+            limit={400}
+            material={THREE.MeshLambertMaterial}
+            castShadow={true}
+            receiveShadow
+          >
+            <Physics gravity={[0, 0, 0]}>
+              <Pointer />
+              <Puffycloud
+                seed={10}
+                position={[50, 0, 0]}
+                castShadow
+                isDarkMode={isDarkMode}
+              />
+              <Puffycloud
+                seed={20}
+                position={[0, 50, 0]}
+                castShadow
+                isDarkMode={isDarkMode}
+              />
+              <Puffycloud
+                seed={30}
+                position={[50, 0, 50]}
+                castShadow
+                isDarkMode={isDarkMode}
+              />
+              <Puffycloud
+                seed={40}
+                position={[0, 0, -50]}
+                castShadow
+                isDarkMode={isDarkMode}
+              />
+              <CuboidCollider
+                position={[0, -5, 0]}
+                args={[400, 10, 400]}
+                castShadow
+              />
+            </Physics>
+          </Clouds>
+        </Context.Provider>
 
         <OrbitControls
           makeDefault

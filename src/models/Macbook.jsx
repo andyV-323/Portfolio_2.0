@@ -38,57 +38,41 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               <group name="display_2" position={[0.028, 0.199, -0.798]}>
                 <mesh
                   name="mesh_0"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0.geometry}
                   material={materials.body}
                 />
                 <mesh
                   name="mesh_0_1"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_1.geometry}
                   material={materials.shiny_body}
                 />
                 <mesh
                   name="mesh_0_2"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_2.geometry}
                   material={materials.display_glass}
                 />
                 <mesh
                   name="mesh_0_3"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_3.geometry}
                   material={materials.screen_BLUE}
                 />
                 <mesh
                   name="mesh_0_4"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_4.geometry}
                   material={materials.camera_glass}
                 />
                 <mesh
                   name="mesh_0_5"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_5.geometry}
                   material={materials.black_borders}
                 />
                 <mesh
                   name="mesh_0_6"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_6.geometry}
                   material={materials['Material.001']}
                 />
                 <mesh
                   name="mesh_0_7"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.mesh_0_7.geometry}
                   material={materials.body_smooth}
                 />
@@ -100,92 +84,66 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_13"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_13.geometry}
                   material={materials.body}
                 />
                 <mesh
                   name="Object_14"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_14.geometry}
                   material={materials.keys}
                 />
                 <mesh
                   name="Object_15"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_15.geometry}
                   material={materials.key_material}
                 />
                 <mesh
                   name="Object_16"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_16.geometry}
                   material={materials.key_material}
                 />
                 <mesh
                   name="Object_17"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_17.geometry}
                   material={materials.key_material}
                 />
                 <mesh
                   name="Object_18"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_18.geometry}
                   material={materials.key_material}
                 />
                 <mesh
                   name="Object_19"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_19.geometry}
                   material={materials.keyboard_bg}
                 />
                 <mesh
                   name="Object_20"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_20.geometry}
                   material={materials.body_smooth}
                 />
                 <mesh
                   name="Object_21"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_21.geometry}
                   material={materials.touch_id_chrome_ring}
                 />
                 <mesh
                   name="Object_22"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_22.geometry}
                   material={materials.rubber_pads}
                 />
                 <mesh
                   name="Object_23"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_23.geometry}
                   material={materials.rubber_pads}
                 />
                 <mesh
                   name="Object_24"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_24.geometry}
                   material={materials.usb_metal}
                 />
                 <mesh
                   name="Object_25"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_25.geometry}
                   material={materials.Black_plastic}
                 />
@@ -198,8 +156,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_27"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_27.geometry}
                   material={materials.black_borders}
                 />
@@ -211,8 +167,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_29"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_29.geometry}
                   material={materials.material_0}
                 />
@@ -224,8 +178,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_31"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_31.geometry}
                   material={materials.material_0}
                 />
@@ -237,8 +189,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_33"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_33.geometry}
                   material={materials.material_0}
                 />
@@ -250,8 +200,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_35"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_35.geometry}
                   material={materials.material_0}
                 />
@@ -263,8 +211,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_37"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_37.geometry}
                   material={materials.material_0}
                 />
@@ -289,8 +235,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_41"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_41.geometry}
                   material={materials.material_0}
                 />
@@ -302,8 +246,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_43"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_43.geometry}
                   material={materials.material_0}
                 />
@@ -315,8 +257,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_45"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_45.geometry}
                   material={materials.material_0}
                 />
@@ -328,8 +268,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_47"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_47.geometry}
                   material={materials.material_0}
                 />
@@ -341,8 +279,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_49"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_49.geometry}
                   material={materials.material_0}
                 />
@@ -354,8 +290,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_51"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_51.geometry}
                   material={materials.material_0}
                 />
@@ -380,8 +314,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_55"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_55.geometry}
                   material={materials.material_0}
                 />
@@ -393,8 +325,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_57"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_57.geometry}
                   material={materials.material_0}
                 />
@@ -406,8 +336,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_59"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_59.geometry}
                   material={materials.material_0}
                 />
@@ -419,8 +347,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_61"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_61.geometry}
                   material={materials.material_0}
                 />
@@ -432,8 +358,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_63"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_63.geometry}
                   material={materials.material_0}
                 />
@@ -445,8 +369,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_65"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_65.geometry}
                   material={materials.material_0}
                 />
@@ -458,8 +380,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_67"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_67.geometry}
                   material={materials.material_0}
                 />
@@ -471,8 +391,6 @@ export function Macbook({ macAnimation, position, scale, onClick }) {
               >
                 <mesh
                   name="Object_69"
-                  castShadow
-                  receiveShadow
                   geometry={nodes.Object_69.geometry}
                   material={materials.material_0}
                 />

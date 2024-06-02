@@ -16,8 +16,6 @@ export function Moon(props) {
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.defaultMaterial.geometry}
           material={materials.Material__50}
           rotation={[Math.PI / 2, 0, 0]}
