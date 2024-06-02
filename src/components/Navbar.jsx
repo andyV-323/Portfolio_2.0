@@ -1,12 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDarkMode } from '../components/DarkModeContext';
-import homeIcon from 'src/assets/icons/home.svg';
+import { home } from '../assets/icons/';
 
 const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const handleToggle = () => {
-    toggleDarkMode(); // This toggles the dark mode state
+    toggleDarkMode();
   };
   return (
     <header className="header">
@@ -14,7 +14,7 @@ const Navbar = () => {
         to="/"
         className="w-10 h-10 rounded-lg hover:bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 items-center justify-center flex font-bold shadow-md"
       >
-        <img src={homeIcon} alt="Home" />
+        <img src={home} alt="Home" />
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink

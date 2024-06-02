@@ -40,6 +40,7 @@ import mysql from './mysql.svg';
 import csu from './csudh.png';
 import mbs from './mbs.svg';
 import pc from './pc.svg';
+import home from './home.svg';
 
 export {
   css,
@@ -84,4 +85,5 @@ export {
   csu,
   mbs,
   pc,
+  home,
 };
