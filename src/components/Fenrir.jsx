@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Werewolf } from '../models';
 
-const Fenrir = () => {
+const Fenrir = ({ onPointerOver, onPointerOut }) => {
   const [currentAnimation, setCurrentAnimation] = useState('Idle');
 
   const adjustWerewolfForScreenSize = () => {
@@ -31,6 +31,8 @@ const Fenrir = () => {
 
   return (
     <Werewolf
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
       position={werewolfPosition}
       scale={werewolfScale}
       onClick={handleWerewolfClick}

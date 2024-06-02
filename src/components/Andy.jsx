@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Me } from '../models';
 
-const Andy = () => {
+const Andy = ({ onPointerOver, onPointerOut }) => {
   const [currentAnimation, setCurrentAnimation] = useState('Idle');
   const [meAnimIndex, setMeAnimIndex] = useState(0);
 
@@ -47,6 +47,8 @@ const Andy = () => {
 
   return (
     <Me
+      onPointerOut={onPointerOut}
+      onPointerOver={onPointerOver}
       position={mePosition}
       scale={meScale}
       onClick={handleMeClick}

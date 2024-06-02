@@ -3,7 +3,14 @@ import { useGLTF, useAnimations } from '@react-three/drei';
 
 import fenrirScene from '../assets/3D/Fenrir4.glb';
 
-export function Werewolf({ currentAnimation, position, scale, onClick }) {
+export function Werewolf({
+  currentAnimation,
+  position,
+  scale,
+  onClick,
+  onPointerOver,
+  onPointerOut,
+}) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(fenrirScene);
   const { actions } = useAnimations(animations, group);
@@ -19,7 +26,14 @@ export function Werewolf({ currentAnimation, position, scale, onClick }) {
   }, [actions, currentAnimation]);
 
   return (
-    <group ref={group} position={position} scale={scale} onClick={onClick}>
+    <group
+      ref={group}
+      position={position}
+      scale={scale}
+      onClick={onClick}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
+    >
       <group name="Scene">
         <group name="Fenrir" rotation={[Math.PI / 2, 0, 0]}>
           <skinnedMesh

@@ -77,6 +77,14 @@ body:has(.card[data-color='green']:hover) {
   .cta-text {
     @apply font-extrabold flex-1 text-3xl max-md:text-center;
   }
+  /* styles.css */
+  .active-link {
+    @apply text-indigo-700 dark:text-blue-500;
+  }
+
+  .hover-link {
+    @apply hover:text-indigo-500;
+  }
 }
 
 .glassmorphism {
@@ -285,4 +293,12 @@ h4 {
     width: 100px;
     text-align: center;
   }
+}
+.canvas-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.pointer-cursor {
+  cursor: pointer !important;
 }

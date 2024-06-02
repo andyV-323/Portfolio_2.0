@@ -31,7 +31,7 @@ const Navbar = () => {
           to="/projects"
           className={`${
             isDarkMode
-              ? 'bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-300 bg-clip-text text-transparent'
+              ? 'bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-300 bg-clip-text text-transparent '
               : 'bg-gradient-to-r from-slate-900 via-slate-700 to-slate-600 bg-clip-text text-transparent'
           }`}
         >

@@ -29,9 +29,19 @@ export default function Home() {
   const shakeRef = useRef();
   const contextValue = useMemo(() => ({ shakeRef }), [isDarkMode]);
 
+  const handlePointerOver = () => {
+    document.querySelector('.canvas-container').classList.add('pointer-cursor');
+  };
+
+  const handlePointerOut = () => {
+    document
+      .querySelector('.canvas-container')
+      .classList.remove('pointer-cursor');
+  };
+
   return (
     <section className="w-full h-screen relative">
-      <Canvas shadows>
+      <Canvas className="canvas-container" shadows>
         <ambientLight intensity={Math.PI / 2} />
         <PerspectiveCam />
         <Lighting />
@@ -89,11 +99,17 @@ export default function Home() {
         <mesh receiveShadow={true} castShadow={true}>
           {isDarkMode ? (
             <>
-              <Fenrir />
+              <Fenrir
+                onPointerOver={handlePointerOver}
+                onPointerOut={handlePointerOut}
+              />
             </>
           ) : (
             <>
-              <Andy />
+              <Andy
+                onPointerOver={handlePointerOver}
+                onPointerOut={handlePointerOut}
+              />
             </>
           )}
         </mesh>

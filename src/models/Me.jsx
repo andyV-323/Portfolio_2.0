@@ -6,7 +6,14 @@ import React, { useRef, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
 import meScene from '../assets/3D/meAvaturn2.glb';
 
-export function Me({ currentAnimation, position, scale, onClick }) {
+export function Me({
+  currentAnimation,
+  position,
+  scale,
+  onClick,
+  onPointerOver,
+  onPointerOut,
+}) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF(meScene);
   const { actions } = useAnimations(animations, group);
@@ -22,7 +29,14 @@ export function Me({ currentAnimation, position, scale, onClick }) {
   }, [actions, currentAnimation]);
 
   return (
-    <group ref={group} position={position} scale={scale} onClick={onClick}>
+    <group
+      ref={group}
+      position={position}
+      scale={scale}
+      onClick={onClick}
+      onPointerOut={onPointerOut}
+      onPointerOver={onPointerOver}
+    >
       <group name="Scene">
         <group name="Avatar">
           <skinnedMesh
