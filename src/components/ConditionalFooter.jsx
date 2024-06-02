@@ -5,7 +5,7 @@ const ConditionalFooter = () => {
   const location = useLocation(); // This is now safe to use here
 
   // Hide the footer on the '/about' page
-  if (location.pathname === '/about') {
+  if (location.pathname === '/about' || location.pathname === '/contact') {
     return null;
   }
 
