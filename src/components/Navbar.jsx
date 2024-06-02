@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDarkMode } from '../components/DarkModeContext';
-import { experiences } from '../constants';
+import homeIcon from 'src/assets/icons/home.svg';
 
 const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
@@ -14,7 +14,7 @@ const Navbar = () => {
         to="/"
         className="w-10 h-10 rounded-lg hover:bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 items-center justify-center flex font-bold shadow-md"
       >
-        <img src="src/assets/icons/home.svg" alt="Home" />
+        <img src={homeIcon} alt="Home" />
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink
