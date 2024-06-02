@@ -10,6 +10,9 @@ import Fenrir from './Fenrir';
 import Andy from './Andy';
 import Laptop from './Laptop';
 import Luna from './Luna';
+import Overlay from './Overlay';
+import Puffycloud from './Puffycloud';
+import Pointer from './Pointer';
 
 export {
   CTA,
@@ -24,4 +27,7 @@ export {
   Andy,
   Laptop,
   Luna,
+  Overlay,
+  Puffycloud,
+  Pointer,
 };

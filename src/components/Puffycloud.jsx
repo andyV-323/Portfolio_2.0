@@ -1,8 +1,9 @@
-import * as THREE from 'three';
-import { useContext, useRef, useState } from 'react';
+// components/Puffycloud.js
+import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
+import { RigidBody, BallCollider } from '@react-three/rapier';
 import { Cloud } from '@react-three/drei';
-import { BallCollider, RigidBody } from '@react-three/rapier';
+import * as THREE from 'three';
 import { random } from 'maath';
 
 const Puffycloud = ({
@@ -13,32 +14,29 @@ const Puffycloud = ({
 }) => {
   const api = useRef();
   const light = useRef();
-  const rig = useContext(context);
   const [flash] = useState(
     () => new random.FlashGen({ count: 10, minDuration: 40, maxDuration: 200 })
   );
-  const contact = (payload) =>
-    payload.other.rigidBodyObject.userData?.cloud &&
-    payload.totalForceMagnitude / 1000 > 100 &&
-    flash.burst();
+
+  const contact = (payload) => {
+    if (
+      payload.other.rigidBodyObject.userData?.cloud &&
+      payload.totalForceMagnitude / 1000 > 100
+    ) {
+      flash.burst();
+    }
+  };
 
   useFrame((state, delta) => {
-    // Always apply impulse for movement
+    const impulse = flash.update(state.clock.elapsedTime, delta);
+    light.current.intensity = impulse * 15000;
     api.current?.applyImpulse(
       vec.copy(api.current.translation()).negate().multiplyScalar(10)
     );
-
-    // Flash logic only in dark mode
-    if (isDarkMode) {
-      const impulse = flash.update(state.clock.elapsedTime, delta);
-      light.current.intensity = impulse * 15000;
-      if (impulse === 1) rig?.current?.setIntensity(1);
-    }
   });
 
   return (
     <RigidBody
-      castShadow
       ref={api}
       userData={{ cloud: true }}
       onContactForce={contact}
@@ -50,7 +48,6 @@ const Puffycloud = ({
     >
       <BallCollider args={[4]} />
       <Cloud
-        castShadow
         seed={seed}
         fade={30}
         speed={0.1}
@@ -61,7 +58,6 @@ const Puffycloud = ({
         bounds={[4, 3, 1]}
       />
       <Cloud
-        castShadow
         seed={seed + 1}
         fade={30}
         position={[0, 1, 0]}
@@ -75,4 +71,5 @@ const Puffycloud = ({
     </RigidBody>
   );
 };
+
 export default Puffycloud;

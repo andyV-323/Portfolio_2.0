@@ -12,9 +12,9 @@ const Navbar = () => {
     <header className="header">
       <NavLink
         to="/"
-        className="w-10 h-10 rounded-lg bg-gray-300 items-center justify-center flex font-bold shadow-md"
+        className="w-10 h-10 rounded-lg hover:bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 items-center justify-center flex font-bold shadow-md"
       >
-        <img src="/src/assets/icons/mbs.svg" alt="MidnightByte Solutions" />
+        <img src="src/assets/icons/home.svg" alt="Home" />
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink
