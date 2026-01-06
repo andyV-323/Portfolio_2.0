@@ -8,7 +8,7 @@ export default function LabRoom({ isDarkMode }) {
 		<group>
 			<Monitors />
 			<Desk />
-			{/*Left Arm top and bottom*/}
+			{/*Left Arm top and Bottom*/}
 			<MountArm
 				position={[-14, 8, -37.2]}
 				rotation={[-Math.PI / 50, -Math.PI / 2, -Math.PI / 2]}
